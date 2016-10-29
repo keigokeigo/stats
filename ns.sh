@@ -47,5 +47,5 @@ _DETAIL_
 done
 
 # clean up old log files
-find $LOGDIR -type f -mtime +14 -daystart | xargs -r rm -f
-find $LOGDIR -type f -mtime +1 -daystart -exec gzip -9 '{}' ';'
+find $LOGDIR -type f -mtime +7 -daystart | xargs -r rm -f
+find $LOGDIR -type f -not -name "*-$DATE.txt" -not -name "*.gz" -exec gzip -9 '{}' ';'
