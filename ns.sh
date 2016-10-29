@@ -22,8 +22,7 @@ if [ ! -s $STATS_LOG_FILE ]; then
 fi
 
 # every 10sec (using 'sleep 10')
-for i in $(seq 1 2)
-#for i in $(seq 1 6)
+for i in $(seq 1 6)
 do
   DATETIME=$(date +'%Y-%m-%d %H:%M:%S.%N')
   RESULT="$(netstat -an)"
