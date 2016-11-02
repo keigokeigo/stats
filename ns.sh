@@ -5,7 +5,6 @@ LOGDIR=$(dirname $0)/logs
 mkdir -p $LOGDIR > /dev/null 2>&1
 
 STATS_LOG_FILE=$LOGDIR/stat-${DATE}.txt
-DETAIL_LOG_FILE=$LOGDIR/detail-${DATE}.txt
 
 # see "/usr/include/netinet/tcp.h"
 STATUS="ESTABLISHED SYN_SENT SYN_RECV FIN_WAIT1 FIN_WAIT2 TIME_WAIT CLOSE CLOSE_WAIT LAST_ACK LISTEN CLOSING"
@@ -34,14 +33,6 @@ do
     echo -ne "\t$COUNT" >> $STATS_LOG_FILE
   done
   echo -ne "\n" >> $STATS_LOG_FILE
-
-  cat <<_DETAIL_ >> $DETAIL_LOG_FILE
-**
-**	$DATETIME
-**
-$RESULT
-
-_DETAIL_
 
   sleep 10
 done
